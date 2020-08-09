@@ -6,18 +6,21 @@ import Header from './components/Header';
 import lightTheme from './theme/lightTheme';
 import Routes from './Routes';
 import Container from './components/Container';
+import UserProvider from './providers/UserProvider';
 
 const App = () => {
   return (
-    <ThemeProvider theme={lightTheme}>
-      <CSSReset />
-      <BrowserRouter>
-        <Header />
-        <Container>
-          <Routes />
-        </Container>
-      </BrowserRouter>
-    </ThemeProvider>
+    <UserProvider>
+      <ThemeProvider theme={lightTheme}>
+        <CSSReset />
+        <BrowserRouter>
+          <Header />
+          <Container>
+            <Routes />
+          </Container>
+        </BrowserRouter>
+      </ThemeProvider>
+    </UserProvider>
   );
 };
 

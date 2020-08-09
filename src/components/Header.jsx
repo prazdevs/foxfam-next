@@ -1,16 +1,20 @@
-import { Box, Flex, Image, useTheme } from '@chakra-ui/core';
-import React, { useState } from 'react';
+import { Box, Flex, Image, useTheme, Button } from '@chakra-ui/core';
+import React, { useState, useContext } from 'react';
 
 import ProfileDropdown from './ProfileDropdown';
 
 import fflFox from '../assets/ffl.png';
 import fflSmallFox from '../assets/ffl_small.png';
 import InternalLink from './InternalLink';
+import { UserContext } from '../providers/UserProvider';
 
 const Header = () => {
   const theme = useTheme();
   const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
+
+  const user = useContext(UserContext);
+  console.log(user);
 
   const links = [
     {
@@ -85,7 +89,11 @@ const Header = () => {
             ))}
           </Flex>
           <Flex justify="center" p={2}>
-            <ProfileDropdown />
+            {user ? (
+              <ProfileDropdown user={user} />
+            ) : (
+              <Button rightIcon="arrow-forward">LOGIN</Button>
+            )}
           </Flex>
         </Box>
       </Flex>
