@@ -6,6 +6,10 @@ const breakpoints = ['576px', '768px', '992px', '1200px'];
 const lightTheme = {
   ...theme,
   breakpoints,
+  fonts: {
+    ...theme.fonts,
+    body: 'Open Sans',
+  },
 };
 
 export default lightTheme;

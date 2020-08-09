@@ -1,11 +1,11 @@
-import { Box, Flex, Image, Link, useTheme } from '@chakra-ui/core';
-import { NavLink } from 'react-router-dom';
+import { Box, Flex, Image, useTheme } from '@chakra-ui/core';
 import React, { useState } from 'react';
 
 import ProfileDropdown from './ProfileDropdown';
 
 import fflFox from '../assets/ffl.png';
 import fflSmallFox from '../assets/ffl_small.png';
+import InternalLink from './InternalLink';
 
 const Header = () => {
   const theme = useTheme();
@@ -79,11 +79,11 @@ const Header = () => {
           alignItems="center"
           bg="gray.200"
         >
-          {links.map((link) => (
-            <Link as={NavLink} to={link.to} fontSize="lg" key={link.to} mx={2}>
-              {link.label}
-            </Link>
-          ))}
+          <Flex direction={{ base: 'column', md: 'row' }} align="center">
+            {links.map(({ label, to }) => (
+              <InternalLink key={to} to={to} label={label} />
+            ))}
+          </Flex>
           <Flex justify="center" p={2}>
             <ProfileDropdown />
           </Flex>
