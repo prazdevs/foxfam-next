@@ -1,4 +1,5 @@
-import { Box, Flex, Image, Text, useTheme } from '@chakra-ui/core';
+import { Box, Flex, Image, Link, useTheme } from '@chakra-ui/core';
+import { NavLink } from 'react-router-dom';
 import React, { useState } from 'react';
 
 import ProfileDropdown from './ProfileDropdown';
@@ -11,7 +12,20 @@ const Header = () => {
   const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
 
-  const links = ['standings', 'teams', 'players'];
+  const links = [
+    {
+      label: 'standings',
+      to: 'standings',
+    },
+    {
+      label: 'teams',
+      to: 'teams',
+    },
+    {
+      label: 'players',
+      to: 'players',
+    },
+  ];
 
   return (
     <Flex justify="center">
@@ -22,25 +36,32 @@ const Header = () => {
         maxW={theme.breakpoints.lg}
         h="70px"
         w="100%"
-        p={2}
         bg="gray.200"
         boxShadow="md"
         wrap="wrap"
+        pos="fixed"
       >
         <Image
           src={fflSmallFox}
           h="full"
           ml={1}
+          p={2}
           display={{ base: 'block', sm: 'none', md: 'block', lg: 'none' }}
         />
         <Image
           src={fflFox}
           h="full"
           ml={1}
+          p={2}
           display={{ base: 'none', sm: 'block', md: 'none', lg: 'block' }}
         />
 
-        <Box display={{ base: 'block', md: 'none' }} onClick={handleToggle}>
+        <Box
+          display={{ base: 'block', md: 'none' }}
+          p={2}
+          mr={1}
+          onClick={handleToggle}
+        >
           <svg
             fill="black"
             width="30px"
@@ -56,13 +77,14 @@ const Header = () => {
           display={{ base: show ? 'block' : 'none', md: 'flex' }}
           width={{ base: 'full', md: 'auto' }}
           alignItems="center"
+          bg="gray.200"
         >
           {links.map((link) => (
-            <Text fontSize="lg" key={link} mx={2}>
-              {link}
-            </Text>
+            <Link as={NavLink} to={link.to} fontSize="lg" key={link.to} mx={2}>
+              {link.label}
+            </Link>
           ))}
-          <Flex justify="center">
+          <Flex justify="center" p={2}>
             <ProfileDropdown />
           </Flex>
         </Box>
