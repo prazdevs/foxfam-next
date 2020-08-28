@@ -10,7 +10,9 @@ import {
 } from '@chakra-ui/core';
 import React from 'react';
 
-import avatar from '../assets/temp/avatar.jpg';
+import { logout } from '../../firebase';
+
+import avatar from '../../assets/temp/avatar.jpg';
 
 const ProfileDropdown = () => {
   return (
@@ -35,7 +37,9 @@ const ProfileDropdown = () => {
       </MenuButton>
       <MenuList>
         <MenuItem>My FFL</MenuItem>
-        <MenuItem>Logout</MenuItem>
+        <MenuItem as="button" onClick={logout}>
+          Logout
+        </MenuItem>
       </MenuList>
     </Menu>
   );

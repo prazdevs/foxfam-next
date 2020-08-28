@@ -2,10 +2,10 @@ import { CSSReset, ThemeProvider } from '@chakra-ui/core';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import Header from './components/Header';
+import Header from './components/header/Header';
 import lightTheme from './theme/lightTheme';
 import Routes from './Routes';
-import Container from './components/Container';
+import Container from './components/ui/Container';
 import UserProvider from './providers/UserProvider';
 
 const App = () => {

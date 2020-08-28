@@ -1,12 +1,13 @@
 import { Box, Flex, Image, useTheme, Button } from '@chakra-ui/core';
 import React, { useState, useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 
 import ProfileDropdown from './ProfileDropdown';
 
-import fflFox from '../assets/ffl.png';
-import fflSmallFox from '../assets/ffl_small.png';
-import InternalLink from './InternalLink';
-import { UserContext } from '../providers/UserProvider';
+import fflFox from '../../assets/ffl.png';
+import fflSmallFox from '../../assets/ffl_small.png';
+import HeaderLink from './HeaderLink';
+import { UserContext } from '../../providers/UserProvider';
 
 const Header = () => {
   const theme = useTheme();
@@ -85,14 +86,16 @@ const Header = () => {
         >
           <Flex direction={{ base: 'column', md: 'row' }} align="center">
             {links.map(({ label, to }) => (
-              <InternalLink key={to} to={to} label={label} />
+              <HeaderLink key={to} to={to} label={label} />
             ))}
           </Flex>
           <Flex justify="center" p={2}>
             {user ? (
               <ProfileDropdown user={user} />
             ) : (
-              <Button rightIcon="arrow-forward">LOGIN</Button>
+              <Button as={RouterLink} to="/login" rightIcon="arrow-forward">
+                LOGIN
+              </Button>
             )}
           </Flex>
         </Box>

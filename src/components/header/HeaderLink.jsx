@@ -10,10 +10,9 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const InternalLink = ({ label, to }) => {
+const HeaderLink = ({ label, to }) => {
   return (
     <StyledLink
-      className="TESTESTES"
       as={NavLink}
       to={to}
       fontSize="lg"
@@ -27,4 +26,4 @@ const InternalLink = ({ label, to }) => {
   );
 };
 
-export default InternalLink;
+export default HeaderLink;
