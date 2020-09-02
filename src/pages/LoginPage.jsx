@@ -1,17 +1,15 @@
 import React from 'react';
-import { useContext } from 'react';
-import { Button } from '@chakra-ui/core';
-import { UserContext } from '../providers/UserProvider';
+import { Button, Switch, useColorMode } from '@chakra-ui/core';
 import { login, logout } from '../firebase';
 
 const LoginPage = () => {
-  const userContext = useContext(UserContext);
+  const { toggleColorMode, colorMode } = useColorMode();
 
-  console.log(userContext);
   return (
     <div>
       <Button onClick={login}>GOOGLE LOGIN</Button>
       <Button onClick={logout}>LOGOUT</Button>
+      <Switch isChecked={colorMode === 'dark'} onChange={toggleColorMode} />
     </div>
   );
 };

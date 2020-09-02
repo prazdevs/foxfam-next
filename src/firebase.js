@@ -1,4 +1,7 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+
 const config = {
   apiKey: 'AIzaSyA_Tk0p9oRNmCr60fisjRragRENhUbd6GA',
   authDomain: 'foxfam-league.firebaseapp.com',
@@ -12,13 +15,10 @@ const config = {
 
 firebase.initializeApp(config);
 
-export const auth = firebase.auth();
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 export const facebookProvider = new firebase.auth.FacebookAuthProvider();
 export const login = () => auth.signInWithPopup(googleProvider);
 export const logout = () => auth.signOut();
-
-export const firestore = firebase.firestore();
 
 export const generateUserDocument = async (user, additionalData) => {
   if (!user) return;
@@ -53,4 +53,7 @@ export const getUserDocument = async (uid) => {
   }
 };
 
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
 export default firebase;
+

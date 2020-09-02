@@ -12,9 +12,7 @@ import React from 'react';
 
 import { logout } from '../../firebase';
 
-import avatar from '../../assets/temp/avatar.jpg';
-
-const ProfileDropdown = () => {
+const ProfileDropdown = ({ user }) => {
   return (
     <Menu>
       <MenuButton
@@ -28,9 +26,9 @@ const ProfileDropdown = () => {
         variant="ghost"
       >
         <Flex align="center" p={1}>
-          <Avatar src={avatar} />
+          <Avatar src={user.photoURL} />
           <Flex maxW="200px" direction="column" ml={2}>
-            <Text isTruncated>Aspect Of PraZ</Text>
+            <Text isTruncated>{user.displayName}</Text>
             <Text isTruncated>Mid for GK</Text>
           </Flex>
         </Flex>

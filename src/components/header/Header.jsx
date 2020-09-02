@@ -1,13 +1,13 @@
-import { Box, Flex, Image, useTheme, Button } from '@chakra-ui/core';
+import { Box, Flex, useTheme, Button, Image } from '@chakra-ui/core';
 import React, { useState, useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 import ProfileDropdown from './ProfileDropdown';
 
-import fflFox from '../../assets/ffl.png';
-import fflSmallFox from '../../assets/ffl_small.png';
+
 import HeaderLink from './HeaderLink';
 import { UserContext } from '../../providers/UserProvider';
+import Fox from '../../assets/fox.svg';
 
 const Header = () => {
   const theme = useTheme();
@@ -45,22 +45,9 @@ const Header = () => {
         boxShadow="md"
         wrap="wrap"
         pos="fixed"
+        zIndex="1000"
       >
-        <Image
-          src={fflSmallFox}
-          h="full"
-          ml={1}
-          p={2}
-          display={{ base: 'block', sm: 'none', md: 'block', lg: 'none' }}
-        />
-        <Image
-          src={fflFox}
-          h="full"
-          ml={1}
-          p={2}
-          display={{ base: 'none', sm: 'block', md: 'none', lg: 'block' }}
-        />
-
+        <Image h="full" p={2} src={Fox} />
         <Box
           display={{ base: 'block', md: 'none' }}
           p={2}
@@ -77,7 +64,6 @@ const Header = () => {
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
           </svg>
         </Box>
-
         <Box
           display={{ base: show ? 'block' : 'none', md: 'flex' }}
           width={{ base: 'full', md: 'auto' }}
@@ -98,6 +84,7 @@ const Header = () => {
               </Button>
             )}
           </Flex>
+          
         </Box>
       </Flex>
     </Flex>
