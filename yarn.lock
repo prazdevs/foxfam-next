@@ -11230,6 +11230,11 @@ typeface-open-sans@^0.0.75:
   resolved "https://registry.yarnpkg.com/typeface-open-sans/-/typeface-open-sans-0.0.75.tgz#20d0c330f14c0c40463c334adbedd6005389abe4"
   integrity sha512-0lLmB7pfj113OP4T78SbpSmC4OCdFQ0vUxdSXQccsSb6qF76F92iEuC/DghFgmPswTyidk8+Hwf+PS/htiJoRQ==
 
+typeface-quicksand@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/typeface-quicksand/-/typeface-quicksand-1.1.4.tgz#69ba3efca02575699c36681e718651052bdec0a6"
+  integrity sha512-J/dTQI5g6V8kK1M38FNn+eHVzImtQtOvVaWA/QU3BNHdx+0NSMh3DL6Ub4CFEo2k5/QAw9vppWMbLVg4vGyXGw==
+
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/unicode-canonical-property-names-ecmascript/-/unicode-canonical-property-names-ecmascript-1.0.4.tgz#2619800c4c825800efdd8343af7dd9933cbe2818"

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'typeface-open-sans';
+import 'typeface-quicksand';
 
 import App from './App';
 

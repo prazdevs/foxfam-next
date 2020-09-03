@@ -1,21 +1,16 @@
-import { Box, Flex, useTheme, Button, Image } from '@chakra-ui/core';
-import React, { useState, useContext } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Box, Flex, useTheme, Image } from '@chakra-ui/core';
+import React, { useState } from 'react';
 
 import ProfileDropdown from './ProfileDropdown';
 
 
 import HeaderLink from './HeaderLink';
-import { UserContext } from '../../providers/UserProvider';
 import Fox from '../../assets/fox.svg';
 
 const Header = () => {
   const theme = useTheme();
   const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
-
-  const user = useContext(UserContext);
-  console.log(user);
 
   const links = [
     {
@@ -75,15 +70,7 @@ const Header = () => {
               <HeaderLink key={to} to={to} label={label} />
             ))}
           </Flex>
-          <Flex justify="center" p={2}>
-            {user ? (
-              <ProfileDropdown user={user} />
-            ) : (
-              <Button as={RouterLink} to="/login" rightIcon="arrow-forward">
-                LOGIN
-              </Button>
-            )}
-          </Flex>
+          <ProfileDropdown />
           
         </Box>
       </Flex>

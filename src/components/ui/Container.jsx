@@ -6,7 +6,7 @@ const Container = ({ children }) => {
 
   return (
     <Flex justify="center">
-      <Flex pt="75px" maxW={theme.breakpoints.lg}>
+      <Flex mt="75px" maxW={theme.breakpoints.lg}>
         {children}
       </Flex>
     </Flex>

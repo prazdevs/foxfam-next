@@ -10,9 +10,14 @@ const theme = {
     ...defaultTheme.colors,
     primary: '#ed8936',
   },
+  shadow: {
+    ...defaultTheme.shadows,
+    focus: '0 0 2px 3px #ed8936',
+  },
   fonts: {
     ...defaultTheme.fonts,
-    body: 'Open Sans',
+    body: 'Quicksand',
+    heading: 'Quicksand',
   },
 };
 

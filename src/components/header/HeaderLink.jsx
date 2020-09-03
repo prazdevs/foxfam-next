@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 
 const StyledLink = styled(Link)`
   &.active {
-    border-bottom: solid 2px ${(props) => props.theme.colors.primary};
+    border-bottom-color: ${(props) => props.theme.colors.primary};
     color: ${(props) => props.theme.colors.primary};
   }
 `;
@@ -19,7 +19,9 @@ const HeaderLink = ({ label, to }) => {
       mx={2}
       textTransform="uppercase"
       fontWeight="semibold"
+      borderBottom="2px solid transparent"
       _hover={{ textDecoration: 'none', color: 'primary' }}
+      _focus={{boxShadow: 'focus'}}
     >
       {label}
     </StyledLink>
